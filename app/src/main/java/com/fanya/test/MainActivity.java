@@ -3,6 +3,8 @@ package com.fanya.test;
 import android.os.Bundle;
 import android.view.View;
 
+import com.fanya.test.activity.CommonActivityFindIdActivity;
+import com.fanya.test.activity.CommonActivityNoFindIdActivity;
 import com.frame.project.abstractview.activity.AbstractByCommonActivity;
 import com.frame.project.modle.ResponseModle;
 
@@ -24,8 +26,10 @@ public class MainActivity extends AbstractByCommonActivity {
         super.widgetClick(v);
         switch (v.getId()) {
             case R.id.one:
+                openActivity(CommonActivityNoFindIdActivity.class,null);
                 break;
             case R.id.two:
+                openActivity(CommonActivityFindIdActivity.class,null);
                 break;
             case R.id.three:
                 break;
