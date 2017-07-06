@@ -30,7 +30,7 @@ public abstract class AbstractPullToRefreshActivity<T> extends AbstractActivity 
     protected AbstractRecyclerviewAdapter abstractRecyclerviewAdapter ;
 
     @Override
-    protected int getLayoutID() {
+    protected int getLayoutId() {
         return getLayId();
     }
     //获取布局的id
