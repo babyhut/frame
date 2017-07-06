@@ -16,10 +16,7 @@ public class MainActivity extends AbstractByCommonActivity {
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-        commonHolder.setOnClickListener(this, R.id.one, R.id.two, R.id.three);
-        commonHolder.setText(R.id.one, "傻逼");
-        commonHolder.setText(R.id.two, "逗逼");
-        commonHolder.setText(R.id.three, "二笔");
+        commonHolder.setOnClickListener(this, R.id.one, R.id.two, R.id.three,R.id.four);
     }
 
     @Override
@@ -27,13 +24,13 @@ public class MainActivity extends AbstractByCommonActivity {
         super.widgetClick(v);
         switch (v.getId()) {
             case R.id.one:
-                showSuccess("one");
                 break;
             case R.id.two:
-                showSuccess("two");
                 break;
             case R.id.three:
-                showSuccess("three");
+                break;
+            case R.id.four:
+
                 break;
         }
     }
