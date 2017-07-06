@@ -7,25 +7,37 @@
     <TextView
         android:id="@+id/one"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/y90"
         android:textColor="@android:color/black"
-        android:textSize="14dp"
+        android:textSize="@dimen/y24"
         android:gravity="center"
+        android:text="普通页面,需要查找ID"
         />
     <TextView
         android:id="@+id/two"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/y90"
         android:textColor="@android:color/black"
-        android:textSize="14dp"
+        android:textSize="@dimen/y24"
         android:gravity="center"
+        android:text="普通页面,不需要需要查找ID"
         />
     <TextView
         android:id="@+id/three"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/y90"
         android:textColor="@android:color/black"
-        android:textSize="14dp"
+        android:textSize="@dimen/y24"
         android:gravity="center"
+        android:text="listview列表页"
+        />
+    <TextView
+        android:id="@+id/four"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/y24"
+        android:gravity="center"
+        android:text="recycleview列表页"
         />
 </LinearLayout>
