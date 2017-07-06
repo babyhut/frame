@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 import com.frame.project.abstractview.activity.AbstractActivity;
 import com.frame.project.annotate.AnnotateUtil;
-import com.google.gson.Gson;
 
 /**
  * Created by xuyanyun on 2017/6/14.
@@ -98,12 +97,5 @@ public abstract class AbstractFragment extends Fragment implements View.OnClickL
     }
     public void widgetClick(View v) {
 
-    }
-    Gson gson ;
-    public Gson getGson (){
-        if(gson==null){
-            gson = new Gson();
-        }
-        return gson;
     }
 }

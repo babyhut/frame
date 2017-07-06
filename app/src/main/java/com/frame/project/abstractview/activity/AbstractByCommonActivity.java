@@ -27,6 +27,7 @@ import com.frame.project.abstractview.holder.CommonActivityHolder;
 import com.frame.project.constrants.Constants;
 import com.frame.project.constrants.FrameApplication;
 import com.frame.project.listener.CommonClickListener;
+import com.frame.project.modle.ResponseModle;
 import com.frame.project.presenter.AbstractInterface;
 import com.frame.project.presenter.ActivityPresenter;
 import com.frame.project.sharedpreferences.ISharedPreferencesDao;
@@ -61,7 +62,7 @@ public abstract class AbstractByCommonActivity extends AppCompatActivity
      *
      * @return  布局id
      */
-    protected abstract int getLayoutID();
+    protected abstract int getLayoutId();
     public void widgetClick(View v) {
 
     }
@@ -95,8 +96,8 @@ public abstract class AbstractByCommonActivity extends AppCompatActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         beforeViewInit();
-        if (getLayoutID() != 0) {
-            setContentView(getLayoutID());
+        if (getLayoutId() != 0) {
+            setContentView(getLayoutId());
             initView(savedInstanceState);
         }
     }
@@ -334,4 +335,21 @@ public abstract class AbstractByCommonActivity extends AppCompatActivity
         super.onDestroy();
         activityPresenter.unSubscribe();
     }
+    @Override
+    public void onCompleted() {
+
+    }
+
+    @Override
+    public void onError(String falMessage, String responseTag) {
+        onFailed(falMessage,responseTag);
+    }
+
+    @Override
+    public void onNext(ResponseModle responseModle, String responseTag) {
+        onSuccess(responseModle,responseTag);
+    }
+
+    public void onSuccess(ResponseModle responseModle, String responseTag){};
+    public void onFailed(String responseModle, String responseTag){};
 }

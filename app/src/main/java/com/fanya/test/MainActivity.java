@@ -10,7 +10,7 @@ public class MainActivity extends AbstractByCommonActivity {
 
 
     @Override
-    protected int getLayoutID() {
+    protected int getLayoutId() {
         return R.layout.main_test_common;
     }
 

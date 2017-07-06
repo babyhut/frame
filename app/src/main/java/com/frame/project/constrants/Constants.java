@@ -31,7 +31,8 @@ public interface Constants {
 
     //接口请求
     interface requestUrl {
-
+        String LOGINURL = "login.jsp";
+        String REGEISTURL = "regeist.jsp";
     }
 
     interface basis {

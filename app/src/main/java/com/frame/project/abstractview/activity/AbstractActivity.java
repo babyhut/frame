@@ -26,6 +26,7 @@ import com.fanya.test.R;
 import com.frame.project.annotate.AnnotateUtil;
 import com.frame.project.constrants.Constants;
 import com.frame.project.constrants.FrameApplication;
+import com.frame.project.modle.ResponseModle;
 import com.frame.project.presenter.AbstractInterface;
 import com.frame.project.presenter.ActivityPresenter;
 import com.frame.project.sharedpreferences.ISharedPreferencesDao;
@@ -350,4 +351,22 @@ public abstract class AbstractActivity extends AppCompatActivity
         super.onDestroy();
         activityPresenter.unSubscribe();
     }
+
+    @Override
+    public void onCompleted() {
+
+    }
+
+    @Override
+    public void onError(String falMessage, String responseTag) {
+        onFailed(falMessage,responseTag);
+    }
+
+    @Override
+    public void onNext(ResponseModle responseModle, String responseTag) {
+        onSuccess(responseModle,responseTag);
+    }
+
+    public void onSuccess(ResponseModle responseModle, String responseTag){};
+    public void onFailed(String responseModle, String responseTag){};
 }
