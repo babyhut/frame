@@ -33,7 +33,10 @@ public class CommonActivityFindIdActivity extends AbstractActivity {
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-
+        one.setText("狗剩子one");
+        two.setText("狗剩子two");
+        three.setText("狗剩子three");
+        four.setText("狗剩子four");
     }
 
     @Override
