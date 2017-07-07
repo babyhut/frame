@@ -29,6 +29,8 @@ import com.frame.project.constrants.FrameApplication;
 import com.frame.project.modle.ResponseModle;
 import com.frame.project.presenter.AbstractInterface;
 import com.frame.project.presenter.ActivityPresenter;
+import com.frame.project.requestdao.RequestInterfaceDao;
+import com.frame.project.requestdao.RequestInterfaceDaoImpl;
 import com.frame.project.sharedpreferences.ISharedPreferencesDao;
 import com.frame.project.sharedpreferences.SharedPreferencesDaoImpl;
 import com.squareup.picasso.Picasso;
@@ -154,8 +156,15 @@ public abstract class AbstractActivity extends AppCompatActivity
         overridePendingTransition(R.anim.zoomin, R.anim.zoomout);
     }
     ////////////////////////////页面跳转///////////////////////////////
-    ////////////////////////////获取sharedPerferencees///////////////////////////////
+    //////////////////获取请求的RequestDao//////////获取sharedPerferencees///////////////////////////////
+    private RequestInterfaceDao requestDao ;
 
+    public RequestInterfaceDao getRequestDao(){
+        if(requestDao == null){
+            requestDao = new RequestInterfaceDaoImpl();
+        }
+        return requestDao ;
+    }
     private ISharedPreferencesDao shareDao;
 
     public ISharedPreferencesDao getShareDao() {
