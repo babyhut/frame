@@ -4,6 +4,8 @@ package com.frame.project.presenter;
 import com.frame.project.modle.RequestModel;
 import com.frame.project.modle.ResponseModle;
 
+import org.json.JSONObject;
+
 /**
  * Created by xuyanyun on 2017/5/22.
  */
@@ -24,5 +26,6 @@ public interface AbstractInterface {
 
         void postResponse(RequestModel requestModel, String tag);
         void getResponse(RequestModel requestModel, String tag);
+        void postByJson(String url , JSONObject jsonObject , String tag);
     }
 }

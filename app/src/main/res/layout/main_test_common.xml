@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
+<!--<include layout="@layout/view_all"/>-->
     <TextView
         android:id="@+id/one"
         android:layout_width="match_parent"
@@ -39,5 +39,14 @@
         android:textSize="@dimen/y24"
         android:gravity="center"
         android:text="recycleview列表页"
+        />
+    <TextView
+        android:id="@+id/five"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/y24"
+        android:gravity="center"
+        android:text="权限申请"
         />
 </LinearLayout>

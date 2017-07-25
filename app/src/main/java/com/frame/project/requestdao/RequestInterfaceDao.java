@@ -12,7 +12,6 @@ import com.frame.project.modle.RequestModel;
 public interface RequestInterfaceDao {
     //登陆
     RequestModel login(String... strings);
-
     //注册
     RequestModel regeist(String... strings);
 }

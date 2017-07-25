@@ -9,10 +9,13 @@ import android.util.Log;
 import com.frame.project.retrfit.AddCookiesInterceptor;
 import com.frame.project.retrfit.SaveCookiesInterceptor;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
+import okhttp3.Interceptor;
+import okhttp3.Request;
+import okhttp3.Response;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -51,6 +54,20 @@ public class FrameApplication extends Application {
                     .connectTimeout(300, TimeUnit.SECONDS)//设置连接超时时间
                     .addInterceptor(new AddCookiesInterceptor(this))
                     .addInterceptor(new SaveCookiesInterceptor(this))
+//                    .addInterceptor(new Interceptor() {
+//                        @Override
+//                        public Response intercept(Chain chain) throws IOException {
+//                            Request request = chain.request()
+//                                    .newBuilder()
+//                                    .addHeader("Content-Type", "application/json;charset=UTF-8")
+//                                    .addHeader("Accept-Encoding", "gzip, deflate")
+//                                    .addHeader("Connection", "keep-alive")
+//                                    .addHeader("Accept", "*/*")
+//                                    .build();
+//                            return chain.proceed(request);
+//                        }
+//
+//                    })
                     .build();
         }
         return okHttpClient;

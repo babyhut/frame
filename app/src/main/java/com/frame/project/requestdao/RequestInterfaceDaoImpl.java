@@ -16,8 +16,8 @@ public class RequestInterfaceDaoImpl implements RequestInterfaceDao {
         RequestModel rm = new RequestModel();
         //比如,这里的入参千万不能错
         rm.addUrl(Constants.requestUrl.LOGINURL);
-        rm.addParam("login",strings[0]);
-        rm.addParam("pswd",strings[1]);
+        rm.addParam("userName",strings[0]);
+        rm.addParam("passWord",strings[1]);
         return rm ;
     }
 

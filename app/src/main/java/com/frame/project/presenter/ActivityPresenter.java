@@ -10,10 +10,14 @@ import com.frame.project.retrfit.ProgressCancelListener;
 import com.frame.project.retrfit.ProgressDialogHandler;
 import com.frame.project.util.JsonUtil;
 
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
 
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import rx.Observer;
 import rx.Subscription;
@@ -31,7 +35,6 @@ public class ActivityPresenter implements AbstractInterface.IMainPresenter, Prog
     private AbstractInterface.IMainView iMainView;//控件
     private ProgressDialogHandler mHandler;
     private JsonUtil jsonUtil;
-
     public ActivityPresenter(Context mContext, AbstractInterface.IMainView iMainView) {
         this.mContext = mContext;
         this.iMainView = iMainView;
@@ -78,6 +81,7 @@ public class ActivityPresenter implements AbstractInterface.IMainPresenter, Prog
                     public void onCompleted() {
                         dismissProgressDialog();
                         iMainView.onCompleted();
+
                     }
 
                     @Override
@@ -107,8 +111,6 @@ public class ActivityPresenter implements AbstractInterface.IMainPresenter, Prog
                             e.printStackTrace();
                             iMainView.onError("解析失败", tag);
                         }
-
-
                     }
                 });
         cancelProcess();
@@ -154,6 +156,56 @@ public class ActivityPresenter implements AbstractInterface.IMainPresenter, Prog
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
+
+                    }
+                });
+        cancelProcess();
+    }
+
+    @Override
+    public void postByJson(String url, JSONObject jsonObject,final String tag) {
+        showProgressDialog();
+
+        RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"),jsonObject.toString());
+        mSubscription = FrameApplication.getInstance().getResponseServiceApi()
+                .postByJson(url,requestBody)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResponseBody>() {
+                    @Override
+                    public void onCompleted() {
+                        dismissProgressDialog();
+                        iMainView.onCompleted();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        dismissProgressDialog();
+                        if (e instanceof SocketTimeoutException) {
+                            iMainView.onError("网络中断，请检查您的网络状态！", tag);
+                        } else if (e instanceof ConnectException) {
+                            iMainView.onError("连接错误!", tag);
+                        } else {
+                            iMainView.onError("自己处理吧!", tag);
+                        }
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onNext(ResponseBody string) {
+                        dismissProgressDialog();
+                        try {
+                            String str = string.string();
+                            Log.e(tag, str);
+                            ResponseModle responseModle = jsonUtil.parseJson(str, ResponseModle.class);
+                            //这里没有判断返回值
+                            //有些接口返回200  ,有些自定义过
+                            iMainView.onNext(responseModle, tag);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            iMainView.onError("解析失败", tag);
+                        }
+
 
                     }
                 });

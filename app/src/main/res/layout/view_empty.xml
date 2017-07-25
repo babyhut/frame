@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/view_empty"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/view_iv_type"
+            android:layout_width="@dimen/y200"
+            android:layout_height="@dimen/y200"
+            android:layout_gravity="center"
+            android:src="@drawable/nocontent" />
+
+        <TextView
+            android:id="@+id/view_tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y100"
+            android:text="数据飞走了,点我再试试???"
+            android:gravity="center"
+            />
+    </LinearLayout>
+
+</LinearLayout>

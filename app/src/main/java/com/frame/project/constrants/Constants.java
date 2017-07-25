@@ -31,11 +31,15 @@ public interface Constants {
 
     //接口请求
     interface requestUrl {
-        String LOGINURL = "login.jsp";
+        String LOGINURL = "login.jspx";
         String REGEISTURL = "regeist.jsp";
     }
 
     interface basis {
+        int one = 1;
+        int two = 2 ;
+        int three = 3 ;
+        int four = 4 ;
         int PAGESSIZE = 10;
         String USERNAME = "";
         String USERPSWD = "";

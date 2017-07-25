@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.fanya.test.R;
 import com.frame.project.abstractview.activity.AbstractByCommonActivity;
+import com.frame.project.util.ToastUtil;
 
 /**
  * 创建人: xuyanyun
@@ -19,6 +20,7 @@ public class CommonActivityNoFindIdActivity extends AbstractByCommonActivity {
     protected int getLayoutId() {
         return R.layout.activity_activity_noid;
     }
+
 
     @Override
     protected void initView(Bundle savedInstanceState) {
@@ -37,16 +39,16 @@ public class CommonActivityNoFindIdActivity extends AbstractByCommonActivity {
         super.widgetClick(v);
         switch (v.getId()) {
             case R.id.one:
-                showSuccess("one");
+                ToastUtil.INSTRANSE.showSuccess("one",this);
                 break;
             case R.id.two:
-                showSuccess("two");
+                ToastUtil.INSTRANSE.showSuccess("two",this);
                 break;
             case R.id.three:
-                showSuccess("three");
+                ToastUtil.INSTRANSE.showSuccess("three",this);
                 break;
             case R.id.four:
-                showSuccess("four");
+                ToastUtil.INSTRANSE.showSuccess("four",this);
                 break;
         }
     }
