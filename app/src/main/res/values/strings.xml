@@ -3,4 +3,10 @@
     <string name="rv_with_footer_pull_load_more">上拉或点击加载更多</string>
     <string name="rv_with_footer_loading">加载中…</string>
     <string name="rv_with_footer_empty">没有数据啦</string>
+    <string name="ucrop_label_edit_photo">Edit Photo</string>
+
+    <string name="ucrop_menu_crop">Crop</string>
+    <string name="ucrop_error_input_data_is_absent">图片地址异常</string>
+    <string name="ucrop_mutate_exception_hint">Therefore, override color resource (ucrop_color_toolbar_widget)
+        in your app to make it work on pre-L devices</string>
 </resources>

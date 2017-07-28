@@ -49,4 +49,33 @@
         android:gravity="center"
         android:text="权限申请"
         />
+    <TextView
+        android:id="@+id/six"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y90"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/y24"
+        android:gravity="center"
+        android:text="裁剪图片"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <ImageView
+            android:id="@+id/main_iv_crop"
+            android:layout_width="@dimen/y220"
+            android:layout_height="@dimen/y220"
+            android:layout_gravity="center"
+            />
+        <com.frame.project.cropview.view.UCropView
+            android:id="@+id/main_uc_crop"
+            android:layout_width="@dimen/y220"
+            android:layout_height="@dimen/y220"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+
 </LinearLayout>

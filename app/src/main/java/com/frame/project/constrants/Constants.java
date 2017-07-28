@@ -2,6 +2,10 @@ package com.frame.project.constrants;
 
 import android.Manifest;
 
+import com.frame.project.util.SavePicUtil;
+
+import java.io.File;
+
 /**
  * Created by xuyanyun on 2017/5/22.
  */
@@ -13,6 +17,8 @@ public interface Constants {
     String SHARED_PREFERNECES_NAME_FORCOOKIES = "com.fanya.lovetrain.cookies";
     //项目地址
     String PROJETURL = "http://115.28.225.48:8099/training/app/";
+    //保存图片的地址
+    String picturePath = SavePicUtil.INSTARNS.getSDCardPath() + File.separator+ "LFL";
 
     //权限申请
     interface permissionStr {

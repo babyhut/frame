@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
         android:name="com.frame.project.constrants.FrameApplication"
         android:allowBackup="true"
@@ -23,6 +24,7 @@
         
         <activity android:name=".activity.CommonActivityFindIdActivity"/>
         <activity android:name=".activity.CommonActivityNoFindIdActivity"/>
+        <activity android:name="com.frame.project.cropview.UCropActivity"/>
     </application>
     
 

@@ -27,7 +27,7 @@ public enum PermissionUtil   {
     public void responsePermission(AppCompatActivity appCompatActivity ,PermissionListener permissionListener, String... permissionName) {
         this.permissionListener = permissionListener;
         if (Build.VERSION.SDK_INT < 21) {
-            permissionListener.hasNoPermission();
+            permissionListener.hasPermission();
             return;
         }
         List<String> pList = new ArrayList<>();

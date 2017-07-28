@@ -1,5 +1,7 @@
 package com.frame.project.util;
 
+import android.text.TextUtils;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -23,4 +25,11 @@ public enum CheckUtil {
         Matcher m = p.matcher(str);
         return m.matches();
     }
+    public  boolean isNull(String string){
+        if (TextUtils.isEmpty(string) || string.equals("null"))  {
+            return true;
+        }
+        return false;
+    }
+
 }

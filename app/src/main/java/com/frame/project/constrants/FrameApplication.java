@@ -9,13 +9,11 @@ import android.util.Log;
 import com.frame.project.retrfit.AddCookiesInterceptor;
 import com.frame.project.retrfit.SaveCookiesInterceptor;
 
-import java.io.IOException;
+import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import okhttp3.Interceptor;
-import okhttp3.Request;
-import okhttp3.Response;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -100,6 +98,7 @@ public class FrameApplication extends Application {
     public void onCreate() {
         super.onCreate();
         getSharedPreferences();
+        getPicPath();
     }
     //存放当前应用程序里面打开的所有的activity
     private List<AppCompatActivity> mList = new LinkedList<>();
@@ -128,6 +127,15 @@ public class FrameApplication extends Application {
                 activity.finish();
                 break;
             }
+        }
+    }
+    //获取保存图片的路径
+    private void getPicPath(){
+        String sdpath = Constants.picturePath;
+        File file = new File(sdpath);
+        // 如果文件夹不存在则创建
+        if (!file.exists() && !file.isDirectory()) {
+            file.mkdir();
         }
     }
 }

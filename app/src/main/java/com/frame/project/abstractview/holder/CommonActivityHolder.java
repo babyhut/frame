@@ -1,6 +1,7 @@
 package com.frame.project.abstractview.holder;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.annotation.IdRes;
 import android.text.TextUtils;
 import android.util.SparseArray;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import com.frame.project.abstractview.activity.AbstractByCommonActivity;
 import com.frame.project.listener.CommonClickListener;
 import com.squareup.picasso.Picasso;
+
+import java.io.File;
 
 /**
  * 通用的RecyclerView的Holder
@@ -57,6 +60,23 @@ public class CommonActivityHolder {
                     .load(imageByUrl)
                     .error(defaultId)
                     .into(imageView);
+        }
+        return this;
+    }
+    public CommonActivityHolder setImageByUrl(Context context , int imageViewId , File file, int defaultId){
+        ImageView imageView = getView(imageViewId);
+        if(null != file){
+            Picasso.with(context)
+                    .load(file)
+                    .error(defaultId)
+                    .into(imageView);
+        }
+        return this;
+    }
+    public CommonActivityHolder setImageByBitmap(Context context , int imageViewId , Bitmap bitmap){
+        ImageView imageView = getView(imageViewId);
+        if(null!=bitmap ){
+            imageView.setImageBitmap(bitmap);
         }
         return this;
     }
