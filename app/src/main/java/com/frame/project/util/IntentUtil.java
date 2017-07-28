@@ -63,4 +63,8 @@ public enum IntentUtil {
         from.startActivityForResult(intent, responseCode);
         from.overridePendingTransition(R.anim.zoomin, R.anim.zoomout);
     }
+
+    public void showPic(){
+
+    }
 }
